@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kendall.rilakkuma.gallery.dao.ImageDetailDao">
+    <resultMap id="BaseResultMap" type="com.kendall.rilakkuma.gallery.pojo.model.ImageDetail">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="image_name" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="image_url" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="description" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+            <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, image_name, image_url, description, create_time, update_time
+  </sql>
+
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from image_detail
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <insert id="insert" parameterType="com.kendall.rilakkuma.gallery.pojo.model.ImageDetail">
+    insert into image_detail (id, image_name, image_url,
+      description, create_time, update_time)
+    values (#{id,jdbcType=INTEGER}, #{imageName,jdbcType=VARCHAR}, #{imageUrl,jdbcType=VARCHAR},
+      #{description,jdbcType=VARCHAR},now(),now())
+  </insert>
+
+    <update id="update" parameterType="com.kendall.rilakkuma.gallery.pojo.model.ImageDetail">
+        update image_detail
+        <set>
+            <if test="imageName != null">
+                image_name = #{imageName,jdbcType=VARCHAR},
+            </if>
+            <if test="imageUrl != null">
+                image_url = #{imageUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+        </set>
+            update_time = now(),
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectAllImages" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from image_detail
+    </select>
+</mapper>
