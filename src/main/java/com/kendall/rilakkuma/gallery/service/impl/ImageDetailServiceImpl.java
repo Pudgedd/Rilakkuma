@@ -1,5 +1,6 @@
 package com.kendall.rilakkuma.gallery.service.impl;
 
+import com.github.pagehelper.PageInfo;
 import com.kendall.rilakkuma.gallery.constant.ErrorType;
 import com.kendall.rilakkuma.gallery.dao.ImageDetailDao;
 import com.kendall.rilakkuma.gallery.exception.BusinessException;
@@ -25,11 +26,13 @@ public class ImageDetailServiceImpl implements ImageDetailService {
 
 
     @Override
-    public List<ImageDetail> getAllImageDetails() throws BusinessException {
+    public PageInfo<ImageDetail> getAllImageDetails() throws BusinessException {
         List<ImageDetail> imageDetails = imageDetailDao.selectAllImages();
 
         AssertUtil.assertTrue(CollectionUtils.isNotEmpty(imageDetails), ErrorType.DB_RESULT_QUERY_EMPTY);
 
-        return imageDetails;
+        PageInfo pageInfo = new PageInfo<ImageDetail>();
+        pageInfo.setList(imageDetails);
+        return pageInfo;
     }
 }

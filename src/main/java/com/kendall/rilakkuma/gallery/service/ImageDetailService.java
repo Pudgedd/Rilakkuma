@@ -1,5 +1,6 @@
 package com.kendall.rilakkuma.gallery.service;
 
+import com.github.pagehelper.PageInfo;
 import com.kendall.rilakkuma.gallery.exception.BusinessException;
 import com.kendall.rilakkuma.gallery.pojo.model.ImageDetail;
 
@@ -16,5 +17,5 @@ public interface ImageDetailService {
      * 查询所有图片
      * @return
      */
-    List<ImageDetail> getAllImageDetails() throws BusinessException;
+    PageInfo<ImageDetail> getAllImageDetails() throws BusinessException;
 }
