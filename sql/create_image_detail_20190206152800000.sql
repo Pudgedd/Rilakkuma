@@ -1,17 +1,17 @@
 CREATE TABLE `image_detail` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `image_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '图片链接',
   `image_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '图片名字',
-  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '图片描述',
+  `image_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '图片链接',
+  `filming_time` timestamp NOT NULL COMMENT '拍摄时间',
+  `description` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci default NULL COMMENT '图片描述',
   `is_anonymous` int(11) NOT NULL DEFAULT '0' COMMENT '0：公开，1：匿名',
-  `create_time` datetime NOT NULL COMMENT '帖子创建时间',
-  `update_time` datetime NOT NULL COMMENT '帖子更新时间',
+  `create_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '帖子创建时间',
+  `update_time` timestamp NOT NULL ON UPDATE CURRENT_TIMESTAMP DEFAULT CURRENT_TIMESTAMP COMMENT '帖子更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='图片详情表'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='图片详情表'
 
-LOCK TABLES `image` WRITE;
-/*!40000 ALTER TABLE `image` DISABLE KEYS */;
-INSERT INTO `image` VALUES 
+LOCK TABLES `image_detail` WRITE;
+INSERT INTO `rilakkuma`.`image_detail` (`id`,`image_name`, `image_url`, `filming_time`, `description`) VALUES
 (48,'100 Day','190708208@qq.com/25bbb943-dbcc-43c2-b8e8-19254b995b98','2016-06-01 00:00:00','腰都扭了'),
 (49,'上课开小差','190708208@qq.com/60b4ee55-94e6-403c-a92e-a8dc31b04fae','2016-03-28 00:00:00','上课偷偷自拍啧啧啧'),
 (50,'制作皮具','190708208@qq.com/d253d3e0-ee97-485f-a94a-a3bd167b282d','2016-05-03 00:00:00','莘庄的小作坊，还蛮有意思的，给对方做了钥匙扣的装饰'),
@@ -42,7 +42,7 @@ INSERT INTO `image` VALUES
 (78,'答辩的宝宝','190708208@qq.com/ec997a23-b7e5-435d-9f66-3aeb4ec93c3a','2018-01-05 00:00:00','最后一个，被表扬了呢，嘻嘻嘻，果然是个聪明宝宝'),
 (79,'答辩的朵朵','190708208@qq.com/a65bb37e-dd6e-429c-9614-f5725c9d97aa','2018-01-05 00:00:00','虽然有点小小的不顺利，相信都会过去的'),
 (81,'平安夜','190708208@qq.com/aff82072-aad2-4fe9-8737-6f79be65e27e','2017-12-24 00:00:00','喜欢这招随手拍');
-/*!40000 ALTER TABLE `image` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+
 
