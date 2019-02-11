@@ -11,6 +11,7 @@ public class ImageDetail {
     private Integer id;
     private String imageName;
     private String imageUrl;
+    private Date filmTime;
     private String description;
     private Date createTime;
     private Date updateTime;
@@ -18,10 +19,11 @@ public class ImageDetail {
     public ImageDetail() {
     }
 
-    public ImageDetail(Integer id, String imageName, String imageUrl, String description, Date createTime, Date updateTime) {
+    public ImageDetail(Integer id, String imageName, String imageUrl, Date filmTime, String description, Date createTime, Date updateTime) {
         this.id = id;
         this.imageName = imageName;
         this.imageUrl = imageUrl;
+        this.filmTime = filmTime;
         this.description = description;
         this.createTime = createTime;
         this.updateTime = updateTime;
@@ -73,5 +75,13 @@ public class ImageDetail {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public Date getFilmTime() {
+        return filmTime;
+    }
+
+    public void setFilmTime(Date filmTime) {
+        this.filmTime = filmTime;
     }
 }

@@ -6,13 +6,14 @@
             <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
             <arg column="image_name" jdbcType="VARCHAR" javaType="java.lang.String"/>
             <arg column="image_url" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="film_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
             <arg column="description" jdbcType="VARCHAR" javaType="java.lang.String"/>
             <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
             <arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
         </constructor>
     </resultMap>
     <sql id="Base_Column_List">
-    id, image_name, image_url, description, create_time, update_time
+    id, image_name, image_url,film_time, description, create_time, update_time
   </sql>
 
     <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
@@ -23,9 +24,9 @@
     </select>
 
     <insert id="insert" parameterType="com.kendall.rilakkuma.gallery.pojo.model.ImageDetail">
-    insert into image_detail (id, image_name, image_url,
+    insert into image_detail (id, image_name, image_url, film_time
       description, create_time, update_time)
-    values (#{id,jdbcType=INTEGER}, #{imageName,jdbcType=VARCHAR}, #{imageUrl,jdbcType=VARCHAR},
+    values (#{id,jdbcType=INTEGER}, #{imageName,jdbcType=VARCHAR}, #{imageUrl,jdbcType=VARCHAR},#{filmTime,jdbcType=TIMESTAMP}
       #{description,jdbcType=VARCHAR},now(),now())
   </insert>
 
@@ -37,6 +38,9 @@
             </if>
             <if test="imageUrl != null">
                 image_url = #{imageUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="filmTime != null">
+                film_time = #{filmTime,jdbcType=TIMESTAMP},
             </if>
             <if test="description != null">
                 description = #{description,jdbcType=VARCHAR},

@@ -72,7 +72,7 @@
                              class="post-3390 post type-post status-publish format-standard has-post-thumbnail hentry category-brand">
                             <div class="featured-media">
                                 <a href="javascript:(0)" th:alt-title="${image.imageName}">
-                                    <img th:src="@{${image.imageUrl}}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="08" sizes="(max-width: 552px) 100vw, 552px" width="552" height="368">
+                                    <img th:src="@{'http://image.lkd-ykr.top/'+${image.imageUrl}}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="08" sizes="(max-width: 552px) 100vw, 552px" width="552" height="368">
                                 </a>
                             </div> <!-- /featured-media -->
                             <div class="post-inner">
@@ -83,7 +83,7 @@
 
                                 <div class="post-meta">
                                     <a class="post-meta-date" href="javascript:(0)"
-                                       th:text="${#dates.format(image.createTime, 'yyyy-MM-dd')}"></a>
+                                       th:text="${#dates.format(image.filmTime, 'yyyy-MM-dd')}"></a>
                                     <div class="clear"></div>
                                 </div> <!-- /post-meta -->
                             </div> <!-- /post-inner -->
