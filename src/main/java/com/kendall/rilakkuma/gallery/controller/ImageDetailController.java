@@ -39,4 +39,18 @@ public class ImageDetailController {
 
         return "imagesPage";
     }
+
+    /**
+     * 展示相册
+     *
+     * @param model
+     * @return
+     */
+    @RequestMapping(path = {"/gallery"})
+    public String test(Model model) throws BusinessException {
+        PageInfo<ImageDetail> images = imageDetailService.getAllImageDetails();
+        model.addAttribute("images", images.getList());
+
+        return "gallery/index";
+    }
 }

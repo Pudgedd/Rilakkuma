@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>A Love Letter to BaoBao</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" th:href="@{css/note/default.css}" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="applicable-device"content="pc,mobile"/>
+</head>
+
+<body>
+<div id="mainDiv">
+	<div id="content">
+		<div id="note">
+			<span>
+					<h2>生日快乐，小宝宝!</h2>
+					<p>不知道不觉，我们在一起快两年了，时间过的好快啊</p>
+					<p>今年虽然过的不轻松，但是总算是收获满满呢(●'◡'●)~</p>
+                    <p>我仍然记得第一次见你的样子，你看上去那么可爱，虽然你可能没有注意到我</p>
+                    <p>有时候我想，读研究生大概是我最幸运的时候了，能够在这里遇到你</p>
+                    <br>
+                    能够和你在一起真好<br>
+					<p><a href="/" style="color: #000;">爱你</a></p>
+				</span>
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					宝宝, 我们已经在一起
+					<div id="elapseClock"></div>
+				</div>
+				<div id="love-u">
+					我永远爱你<br/>
+					<div class="signature">- Kendall</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="copyright">
+		Copyright © 2017 <a href='https://pudgedd.github.io/'>Kendall Luo</a> 2017
+	</div>
+</div>
+</body>
+
+<script th:src="@{js/app/gallery/jquery.js}"></script>
+<script th:src="@{js/app/note/garden.js}"></script>
+<script th:src="@{js/app/note/functions.js}"></script>
+<script th:src="@{js/app/note/letter.js}"></script>
+</html>
